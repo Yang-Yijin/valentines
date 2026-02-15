@@ -64,6 +64,7 @@ function renderGallery(photos) {
     const img = document.createElement("img");
     img.src = url;
     img.alt = "家庭美照";
+    img.loading = "lazy";
     galleryEl.appendChild(img);
   });
 }
@@ -196,8 +197,22 @@ function initNoteRain() {
   noteRainBtn.addEventListener("click", startNoteRain);
 }
 
+async function fetchWithRetry(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url);
+      if (response.ok) return response;
+    } catch { /* retry */ }
+    if (i < retries - 1) {
+      subtitleEl.textContent = `服务器唤醒中...再等一下下 (${i + 1}/${retries})`;
+      await new Promise((r) => setTimeout(r, 3000));
+    }
+  }
+  throw new Error("请求失败");
+}
+
 async function loadData() {
-  const response = await fetch("/api/valentine");
+  const response = await fetchWithRetry("/api/valentine");
   const data = await response.json();
 
   titleEl.textContent = data.title;
