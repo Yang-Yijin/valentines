@@ -1,0 +1,13 @@
+﻿services:
+- type: web
+  name: valentines
+  runtime: dotnet
+  repo: https://github.com/Yang-Yijin/valentines.git
+  branch: main
+  buildCommand: dotnet publish -c Release -o out
+  startCommand: dotnet out/Valentine.dll
+  plan: free
+  autoDeploy: true
+  envVars:
+  - key: ASPNETCORE_ENVIRONMENT
+    value: Production

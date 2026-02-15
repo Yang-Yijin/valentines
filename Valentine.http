@@ -1,0 +1,6 @@
+@Valentine_HostAddress = http://localhost:5276
+
+GET {{Valentine_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

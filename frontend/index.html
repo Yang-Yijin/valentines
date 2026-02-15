@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#d94f70" />
+  <title>杨家的第一个情人节</title>
+  <link rel="stylesheet" href="./style.css?v=20260214-8" />
+</head>
+<body>
+  <main class="container">
+    <section class="hero card">
+      <h1 id="title">加载中...</h1>
+      <p id="subtitle"></p>
+      <audio id="bgm" loop autoplay playsinline></audio>
+    </section>
+
+    <section class="card">
+      <h2>对宝宝的话</h2>
+      <p id="letter" class="typewriter"></p>
+    </section>
+
+    <section class="card">
+      <h2>家庭美照</h2>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section class="card counter">
+      <h2>在一起</h2>
+      <p><span id="days">0</span> 天啦</p>
+    </section>
+
+    <section class="card counter">
+      <h2>宝宝大人回来啦</h2>
+      <p>倒计时 <span id="returnCountdown">0</span> 天</p>
+    </section>
+
+    <section class="card">
+      <h2>密码解锁区</h2>
+      <p>输入纪念日解锁菜单</p>
+      <div class="secret-row">
+        <input id="secretInput" type="password" maxlength="20" placeholder="输入密码..." />
+        <button id="secretBtn" class="btn" type="button">解锁</button>
+      </div>
+      <p id="secretHint" class="hint"></p>
+      <p id="secretMessage" class="hidden unlock-message"></p>
+    </section>
+
+    <section class="card">
+      <h2>纸条雨</h2>
+      <p>点一下试试</p>
+      <button id="noteRainBtn" class="btn" type="button">开始下纸条雨</button>
+    </section>
+
+    <section class="card final">
+      <p id="surpriseText"></p>
+      <p id="signature"></p>
+    </section>
+  </main>
+
+  <div id="imageModal" class="image-modal hidden" role="dialog" aria-modal="true" aria-label="图片预览">
+    <img id="modalImage" src="" alt="大图预览" />
+  </div>
+
+  <div id="noteRainLayer" class="note-rain-layer"></div>
+
+  <script src="./app.js?v=20260214-7"></script>
+</body>
+</html>
+
+
